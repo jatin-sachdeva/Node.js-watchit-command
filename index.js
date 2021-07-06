@@ -22,7 +22,7 @@ program.version('0.0.1').argument('[filename]', 'The name of the file').action(a
 	}
 	let childProc;
 	const addCallback = debounce(() => {
-		// here we need t execute the file passed in as argument by the user
+		// here we need t execute the file passed in as argument by the users
 		// so that whenever chokidar registers a change, add or unlinking then it should rerun the program / file passed by user
 		// node we assume only .js filename is passed
 
