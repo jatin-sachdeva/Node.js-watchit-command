@@ -7,6 +7,7 @@ const chokidar = require('chokidar');
 const debounce = require('lodash.debounce');
 const program = require('caporal');
 const child_process = require('child_process');
+const chalk = require('chalk');
 
 // caporal
 program.version('0.0.1').argument('[filename]', 'The name of the file').action(async (args) => {
@@ -28,7 +29,7 @@ program.version('0.0.1').argument('[filename]', 'The name of the file').action(a
 
 		// it will be achieved by child process.spawn method
 		if (childProc) childProc.kill(); // kill the previous child process so that only new code runs on change
-		console.log('starting process >>>>');
+		console.log(chalk.italic.white('starting process >>>>'));
 		childProc = child_process.spawn('node', [ filename ], { stdio: 'inherit' });
 	}, 1000);
 
